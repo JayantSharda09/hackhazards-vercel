@@ -508,7 +508,7 @@
                                 statusDisplay.textContent = "Translating...";
                                 targetText.value = "Translating...";
 
-                                const res = await fetch("http://localhost:5000/translate-audio", {
+                                const res = await fetch("https://your-backend.railway.app/translate-audio", {
                                     method: "POST",
                                     body: formData
                                 });

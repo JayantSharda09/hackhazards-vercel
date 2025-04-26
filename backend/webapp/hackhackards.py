@@ -28,7 +28,7 @@ AudioSegment.converter = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins
+CORS(app, resources={r"/*": {"origins": ["https://your-frontend.vercel.app"]}});  # Restrict CORS to Vercel frontend domain
 
 # Increase file upload size limit
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
@@ -142,7 +142,7 @@ def translate_audio():
 def delete_audio_files():
     try:
         # Define the directory containing audio files
-        audio_dir = os.path.join(os.path.dirname(__file__), "../audio_files")
+        audio_dir = os.path.join(os.path.dirname(__file__), "backend/audio_files")
         
         if not os.path.exists(audio_dir):
             return jsonify({"message": "Audio directory does not exist."}), 200
@@ -166,7 +166,7 @@ def delete_audio_files():
 @app.route("/clean-audio-files", methods=["POST"])
 def clean_audio_files():
     try:
-        audio_dir = os.path.join(os.path.dirname(__file__), "../audio_files")
+        audio_dir = os.path.join(os.path.dirname(__file__), "backend/audio_files")
 
         if not os.path.exists(audio_dir):
             return jsonify({"message": "Audio directory does not exist."}), 200

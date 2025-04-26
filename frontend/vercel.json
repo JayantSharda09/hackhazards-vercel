@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "webapp/hackhazards_app.py", "use": "@vercel/python" },
+    { "src": "webapp/hackhackards.py", "use": "@vercel/python" },
+    { "src": "hackhazards/audio_api.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "webapp/hackhazards_app.py" },
+    { "src": "/hackhackards/(.*)", "dest": "webapp/hackhackards.py" },
+    { "src": "/audio_api/(.*)", "dest": "hackhazards/audio_api.py" }
+  ]
+}

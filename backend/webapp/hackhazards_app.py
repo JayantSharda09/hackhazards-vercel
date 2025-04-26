@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import speech_recognition as sr
@@ -9,7 +8,7 @@ from pydub import AudioSegment
 from aitranslator import Textify
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://your-frontend.vercel.app"])
 
 recognizer = sr.Recognizer()
 translator = Textify()
@@ -114,5 +113,5 @@ def translate_audio():
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
 
-CMD ["python", "webapp/hackhazards_app.py"]
+
 

@@ -5,12 +5,12 @@ from gtts import gTTS
 import io
 import base64
 from pydub import AudioSegment
-from text import Textify
+from hackhazards.text import Textify
 import tempfile
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://your-frontend.vercel.app"])
 
 recognizer = sr.Recognizer()
 translator = Textify()
