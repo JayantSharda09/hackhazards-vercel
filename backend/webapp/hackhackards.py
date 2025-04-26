@@ -28,7 +28,7 @@ AudioSegment.converter = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://your-frontend.vercel.app"]}});  # Restrict CORS to Vercel frontend domain
+CORS(app, resources={r"/*": {"origins": ["https://hackhazards-opal.vercel.app/"]}});  # Restrict CORS to Vercel frontend domain
 
 # Increase file upload size limit
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
@@ -220,3 +220,4 @@ def getLanguageCode(language):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
+
