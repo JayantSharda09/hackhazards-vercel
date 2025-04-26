@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "webapp/hackhazards_app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "webapp/hackhazards_app.py" }
+  ]
+}
